@@ -1,0 +1,509 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "format:AGR-{start_date}-{lease_customer}-{room}-{#####}",
+ "creation": "2018-05-01 22:11:38.457329",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "lease_basic_info_section",
+  "company",
+  "property",
+  "room",
+  "column_break_4",
+  "agreement_id",
+  "lease_status",
+  "agreement_type",
+  "term_type",
+  "document_reminders_section",
+  "signed_agreement_received",
+  "column_break_1",
+  "stamp_duty_paid_by_tenant",
+  "lease_parties_section",
+  "property_owner",
+  "lease_customer",
+  "resident",
+  "number_of_residents",
+  "lease_dates_section",
+  "lease_date",
+  "start_date",
+  "column_break_13",
+  "end_date",
+  "frequency",
+  "section_break_13",
+  "fee_type",
+  "fee_amount",
+  "key_money_amount",
+  "key_money_status",
+  "days_to_invoice_in_advance",
+  "column_break_23",
+  "notice_period",
+  "fit_out_period",
+  "section_break_taiu",
+  "payment_schedule",
+  "cheque_history",
+  "security_deposit_details_section",
+  "security_deposit",
+  "security_status",
+  "column_break_27",
+  "security_received_payment",
+  "security_returned_reference",
+  "attachments_section",
+  "attachments",
+  "status_and_system_section",
+  "status",
+  "last_billing_entry_date",
+  "next_period_start",
+  "next_period_end",
+  "other_lease_details_section",
+  "late_payment_interest_percentage",
+  "wtax_paid_by",
+  "column_break_34",
+  "witness_2",
+  "witness_1",
+  "terminate_details_section",
+  "terminate_reason",
+  "effective_date",
+  "section_break_36",
+  "amended_from",
+  "column_break_ppik",
+  "sales_order"
+ ],
+ "fields": [
+  {
+   "fieldname": "lease_basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Agreement Basic info"
+  },
+  {
+   "fetch_from": "property.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "lease_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Agreement Signed Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "document_reminders_section",
+   "fieldtype": "Section Break",
+   "label": "Document Reminders"
+  },
+  {
+   "default": "0",
+   "fieldname": "signed_agreement_received",
+   "fieldtype": "Check",
+   "label": "Signed agreement received",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "stamp_duty_paid_by_tenant",
+   "fieldtype": "Check",
+   "label": "Stamp duty paid by Resident",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lease_parties_section",
+   "fieldtype": "Section Break",
+   "label": "Agreement Parties"
+  },
+  {
+   "fetch_from": "property.owners",
+   "fieldname": "property_owner",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property Owner",
+   "options": "Owner",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lease_customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Agreement Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lease_dates_section",
+   "fieldtype": "Section Break",
+   "label": "Agreement Dates"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date",
+   "mandatory_depends_on": "eval:doc.term_type==\"Fixed-term\""
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Billing Period",
+   "options": "\nFortnight\nWeek\nMonth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break",
+   "label": "Financials"
+  },
+  {
+   "description": "No. of Days",
+   "fieldname": "notice_period",
+   "fieldtype": "Int",
+   "label": "Notice Period",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "No. of Days",
+   "fieldname": "fit_out_period",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Fit out Period"
+  },
+  {
+   "fieldname": "security_deposit_details_section",
+   "fieldtype": "Section Break",
+   "label": "Security Deposit Details"
+  },
+  {
+   "description": "Security Deposit Amount",
+   "fetch_from": "room.security_deposit_amount",
+   "fieldname": "security_deposit",
+   "fieldtype": "Currency",
+   "label": "Security deposit",
+   "options": "security_deposit_currency",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "security_status",
+   "fieldtype": "Select",
+   "label": "Security Status",
+   "options": "\nProforma Invoice raised\nReceived\nReceived in part\nReturn in part\nReturned\nRecovered for rent\nRecovered for repairs\nNot required",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "security_received_payment",
+   "fieldtype": "Link",
+   "label": "Final Security Received Payment",
+   "options": "Payment Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "security_returned_reference",
+   "fieldtype": "Link",
+   "label": "Final Security Returned Reference",
+   "options": "Payment Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "other_lease_details_section",
+   "fieldtype": "Section Break",
+   "label": "Other Agreement details"
+  },
+  {
+   "fieldname": "late_payment_interest_percentage",
+   "fieldtype": "Percent",
+   "label": "Late payment interest percentage"
+  },
+  {
+   "fieldname": "wtax_paid_by",
+   "fieldtype": "Select",
+   "label": "WTax paid by",
+   "options": "By Lessee\nOn behalf of lessee by Landlord\nBy Landlord"
+  },
+  {
+   "fieldname": "column_break_34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "witness_2",
+   "fieldtype": "Link",
+   "label": "Witness 2",
+   "options": "Contact"
+  },
+  {
+   "fieldname": "witness_1",
+   "fieldtype": "Link",
+   "label": "Witness 1",
+   "options": "Contact"
+  },
+  {
+   "fieldname": "section_break_36",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Agreement",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "days_to_invoice_in_advance",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Days to invoice in advance"
+  },
+  {
+   "fieldname": "lease_status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Agreement Status",
+   "options": "\nActive\nClosed\nNot Materialized\nRenewal to Previous Lease\nAdendum to Previous Lease\nVacating"
+  },
+  {
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "label": "Shop",
+   "link_filters": "[[\"Room\",\"property_code\",\"=\",\"eval:doc.property\"],[\"Room\",\"is_available\",\"=\",1]]",
+   "options": "Room",
+   "reqd": 1
+  },
+  {
+   "fieldname": "agreement_id",
+   "fieldtype": "Data",
+   "label": "Agreement ID",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "agreement_type",
+   "fieldtype": "Select",
+   "label": "Agreement Type",
+   "options": "Agreement\nAgreement to Occupy\nRooming Agreement\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "term_type",
+   "fieldtype": "Select",
+   "label": "Term Type",
+   "options": "Fixed-term\nPeriodic"
+  },
+  {
+   "fieldname": "number_of_residents",
+   "fieldtype": "Int",
+   "label": "Number of Residents",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fee_type",
+   "fieldtype": "Select",
+   "label": "Fee Type",
+   "options": "Occupancy Fee\nRent\nBoarding Fee\nOther",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "room.rent_amount",
+   "fieldname": "fee_amount",
+   "fieldtype": "Currency",
+   "label": "Fee Amount",
+   "options": "Occupancy Fee\nRent\nBoarding Fee\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "attachments_section",
+   "fieldtype": "Section Break",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Table",
+   "label": "Attachments",
+   "options": "File and Video Attachment Items"
+  },
+  {
+   "fieldname": "status_and_system_section",
+   "fieldtype": "Section Break",
+   "label": "Status And System"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nPending\nActive\nTerminated\nEnded\nCancelled"
+  },
+  {
+   "fieldname": "last_billing_entry_date",
+   "fieldtype": "Date",
+   "label": "Last Billing Entry Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "next_period_start",
+   "fieldtype": "Date",
+   "label": "Next Period Start",
+   "read_only": 1
+  },
+  {
+   "fieldname": "next_period_end",
+   "fieldtype": "Date",
+   "label": "Next Period End",
+   "read_only": 1
+  },
+  {
+   "fieldname": "resident",
+   "fieldtype": "Table",
+   "label": "Agreement Resident",
+   "options": "Agreement Resident"
+  },
+  {
+   "fieldname": "terminate_details_section",
+   "fieldtype": "Section Break",
+   "label": "Terminate Details"
+  },
+  {
+   "description": "Enter the Reason before Termination",
+   "fieldname": "terminate_reason",
+   "fieldtype": "Small Text",
+   "label": "Terminate Reason"
+  },
+  {
+   "fieldname": "effective_date",
+   "fieldtype": "Date",
+   "label": "Effective Date",
+   "mandatory_depends_on": "eval:doc.terminate_reason"
+  },
+  {
+   "fieldname": "section_break_taiu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "payment_schedule",
+   "fieldtype": "Table",
+   "label": "Payment Schedule",
+   "options": "Agreement Payment Schedule"
+  },
+  {
+   "fieldname": "column_break_ppik",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Data",
+   "label": "Sales Order"
+  },
+  {
+   "fieldname": "cheque_history",
+   "fieldtype": "Table",
+   "label": "Cheque History",
+   "options": "Agreement Cheque History"
+  },
+  {
+   "fieldname": "key_money_amount",
+   "fieldtype": "Currency",
+   "label": "Key Money Amount"
+  },
+  {
+   "fieldname": "key_money_status",
+   "fieldtype": "Select",
+   "label": "Key Money Status",
+   "options": "Draft\nBilled\nPaid"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-01-19 18:55:20.187107",
+ "modified_by": "Administrator",
+ "module": "Property Management Solution",
+ "name": "Agreement",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Green",
+   "title": "Active"
+  },
+  {
+   "color": "Red",
+   "title": "Terminated"
+  },
+  {
+   "color": "Orange",
+   "title": "Pending"
+  },
+  {
+   "color": "Gray",
+   "title": "Cancelled "
+  }
+ ],
+ "track_changes": 1
+}

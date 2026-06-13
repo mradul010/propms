@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:item_name",
+ "creation": "2025-09-17 11:41:51.370492",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_name",
+  "category"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Name",
+   "link_filters": "[[\"Feature Master\",\"is_active\",\"=\",1],[\"Feature Master\",\"feature_category\",\"like\",\"%Room Feature%\"]]",
+   "options": "Feature Master",
+   "unique": 1
+  },
+  {
+   "fetch_from": "item_name.feature_category",
+   "fetch_if_empty": 1,
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Category",
+   "link_filters": "[[\"Feature Category Master\",\"feature_catergory_name\",\"like\",\"%Room%\"]]",
+   "options": "Feature Category Master"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-17 11:44:02.411173",
+ "modified_by": "Administrator",
+ "module": "Property Management Solution",
+ "name": "Room Feature Item",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

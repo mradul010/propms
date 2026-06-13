@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-17 16:25:13.780987",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "property",
+  "property_owner",
+  "property_manager",
+  "total_rooms",
+  "occupied_room"
+ ],
+ "fields": [
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property",
+   "options": "Property"
+  },
+  {
+   "fetch_from": "property.owners",
+   "fieldname": "property_owner",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Property Owner"
+  },
+  {
+   "fetch_from": "property.property_manager",
+   "fieldname": "property_manager",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Property Manager"
+  },
+  {
+   "fetch_from": "property.total_rooms",
+   "fieldname": "total_rooms",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Total Rooms",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "property.occupied_rooms",
+   "fieldname": "occupied_room",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Occupied Room"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-17 16:29:47.125832",
+ "modified_by": "Administrator",
+ "module": "Property Management Solution",
+ "name": "Property Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

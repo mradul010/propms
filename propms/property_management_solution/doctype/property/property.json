@@ -1,0 +1,448 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:property_code",
+ "color": "#ff0102",
+ "creation": "2018-11-22 23:15:45.736517",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "identification_section",
+  "property_code",
+  "name1",
+  "parent_property",
+  "column_break_2",
+  "company",
+  "address",
+  "owner_and_contacts_section",
+  "property_manager",
+  "manager_name",
+  "manager_email",
+  "manager_phone",
+  "column_break_vzpa",
+  "owners",
+  "owner_name",
+  "owner_email",
+  "owner_phone",
+  "room_section",
+  "room_details",
+  "total_rooms",
+  "occupied_rooms",
+  "section_break_13",
+  "property_builtup_area",
+  "property_carpet_area",
+  "property_facing",
+  "column_break_18",
+  "no_of_parking",
+  "smoking",
+  "furnished",
+  "status",
+  "common_features_section",
+  "common_features",
+  "property_media_section",
+  "property_images",
+  "common_area_images",
+  "file_and_videos",
+  "section_break_22",
+  "unit_assets",
+  "column_break_24",
+  "amenity_name",
+  "tradies_list_section",
+  "tradies",
+  "description_section",
+  "knowledgebase",
+  "lft",
+  "rgt",
+  "old_parent"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "fieldname": "identification_section",
+   "fieldtype": "Section Break",
+   "label": "IDENTIFICATION"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Property Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "parent_property",
+   "fieldtype": "Link",
+   "label": "Parent property",
+   "options": "Property"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "bold": 1,
+   "collapsible": 1,
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break",
+   "label": "PROPERTY DETAILS"
+  },
+  {
+   "fieldname": "no_of_parking",
+   "fieldtype": "Int",
+   "label": "No of parking"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "smoking",
+   "fieldtype": "Check",
+   "label": "Smoking"
+  },
+  {
+   "default": "0",
+   "fieldname": "furnished",
+   "fieldtype": "Check",
+   "label": "Furnished"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Status",
+   "options": "Available\nBooked\nCommon Area (Not for lease)\nManaged for Customer\nOff Lease in 3 Months\nOn Lease\nOn Sale\nRemoved\nRenewal\nSold\nVacating\nOn lease"
+  },
+  {
+   "bold": 1,
+   "collapsible": 1,
+   "fieldname": "section_break_22",
+   "fieldtype": "Section Break",
+   "label": "MORE INFORMATION"
+  },
+  {
+   "fieldname": "unit_assets",
+   "fieldtype": "Table",
+   "label": "Unit Assets",
+   "options": "Unit Assets"
+  },
+  {
+   "fieldname": "column_break_24",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amenity_name",
+   "fieldtype": "Table",
+   "label": "Amenity Name",
+   "options": "Property Amenity"
+  },
+  {
+   "fieldname": "description_section",
+   "fieldtype": "Section Break",
+   "hide_border": 1,
+   "label": "KNOWLEDGEBASE"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "Property"
+  },
+  {
+   "fieldname": "parent_property",
+   "fieldtype": "Link",
+   "label": "Parent property",
+   "options": "Property"
+  },
+  {
+   "bold": 1,
+   "collapsible": 1,
+   "fieldname": "owner_and_contacts_section",
+   "fieldtype": "Section Break",
+   "label": "OWNER AND CONTACTS"
+  },
+  {
+   "fieldname": "property_manager",
+   "fieldtype": "Link",
+   "label": "Property Manager",
+   "options": "Manager",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "property_manager.first_name",
+   "fieldname": "manager_name",
+   "fieldtype": "Data",
+   "label": "Manager Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "property_manager.email",
+   "fieldname": "manager_email",
+   "fieldtype": "Data",
+   "label": "Manager Email",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "property_manager.phone",
+   "fieldname": "manager_phone",
+   "fieldtype": "Data",
+   "label": "Manager Phone",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_vzpa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "owners",
+   "fieldtype": "Link",
+   "label": "Property Owner",
+   "options": "Owner",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "owners.first_name",
+   "fieldname": "owner_name",
+   "fieldtype": "Data",
+   "label": "Owner Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "owners.email",
+   "fieldname": "owner_email",
+   "fieldtype": "Data",
+   "label": "Owner Email",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "owners.phone",
+   "fieldname": "owner_phone",
+   "fieldtype": "Data",
+   "label": "Owner Phone",
+   "read_only": 1
+  },
+  {
+   "fieldname": "common_features_section",
+   "fieldtype": "Section Break",
+   "label": "COMMON FEATURES"
+  },
+  {
+   "fieldname": "room_section",
+   "fieldtype": "Section Break",
+   "label": "SHOPS"
+  },
+  {
+   "fieldname": "room_details",
+   "fieldtype": "Table",
+   "label": "Shop Details",
+   "options": "Room Items"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "label": "Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "knowledgebase",
+   "fieldtype": "Table",
+   "label": "Knowledgebase",
+   "options": "Knowledgebase Items"
+  },
+  {
+   "fieldname": "property_code",
+   "fieldtype": "Data",
+   "label": "Property Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "common_area_images",
+   "fieldtype": "Table",
+   "label": "Common Area Images",
+   "options": "Image Items"
+  },
+  {
+   "fieldname": "property_media_section",
+   "fieldtype": "Section Break",
+   "label": "PROPERTY MEDIA"
+  },
+  {
+   "fieldname": "property_images",
+   "fieldtype": "Table",
+   "label": "Property Images",
+   "options": "Image Items"
+  },
+  {
+   "fieldname": "tradies_list_section",
+   "fieldtype": "Section Break",
+   "hide_border": 1,
+   "label": "TRADIES LIST"
+  },
+  {
+   "fieldname": "tradies",
+   "fieldtype": "Table",
+   "label": "Tradies",
+   "options": "Tradies Items"
+  },
+  {
+   "fieldname": "common_features",
+   "fieldtype": "Table",
+   "label": "Common Features",
+   "options": "Common Feature Master Items"
+  },
+  {
+   "fieldname": "property_builtup_area",
+   "fieldtype": "Float",
+   "label": "Property Builtup area"
+  },
+  {
+   "fieldname": "property_carpet_area",
+   "fieldtype": "Float",
+   "label": "Property Carpet area"
+  },
+  {
+   "fieldname": "property_facing",
+   "fieldtype": "Select",
+   "label": "Property Facing",
+   "options": "North\nNorth-East\nEast\nSouth-East\nWest\nNorth-West\nSouth-West\nSouth"
+  },
+  {
+   "fieldname": "file_and_videos",
+   "fieldtype": "Table",
+   "label": "File and Videos",
+   "options": "File and Video Attachment Items"
+  },
+  {
+   "fieldname": "total_rooms",
+   "fieldtype": "Int",
+   "label": "Total Shops"
+  },
+  {
+   "fieldname": "occupied_rooms",
+   "fieldtype": "Int",
+   "label": "Occupied Shops"
+  }
+ ],
+ "icon": "octicon octicon-home",
+ "is_tree": 1,
+ "links": [],
+ "modified": "2026-01-19 19:00:26.418718",
+ "modified_by": "Administrator",
+ "module": "Property Management Solution",
+ "name": "Property",
+ "naming_rule": "By fieldname",
+ "nsm_parent_field": "parent_property",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "permlevel": 2,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Floor Maintenance Supervisor",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance Job in-charge",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance Manager",
+   "share": 1
+  },
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "permlevel": 2,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

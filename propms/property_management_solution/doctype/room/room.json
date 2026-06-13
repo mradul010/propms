@@ -1,0 +1,163 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{property_code}-{room}",
+ "creation": "2025-09-15 15:17:14.163117",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "room_details_section",
+  "property_code",
+  "room_status",
+  "is_available",
+  "column_break_bzsy",
+  "room",
+  "room_finance_section",
+  "rent_amount",
+  "security_deposit_amount",
+  "room_furniture_section",
+  "room_furniture",
+  "room_featuresequipment_section",
+  "room_size",
+  "unit_of_measurement",
+  "room_features",
+  "room_media_section",
+  "room_media_attachment",
+  "room_images"
+ ],
+ "fields": [
+  {
+   "fieldname": "room_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Shop Status",
+   "options": "Available\nOccupied\nArchived\nDeleted"
+  },
+  {
+   "fieldname": "property_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property Code",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "room_details_section",
+   "fieldtype": "Section Break",
+   "label": "Shop Details"
+  },
+  {
+   "fieldname": "room_featuresequipment_section",
+   "fieldtype": "Section Break",
+   "label": " Shop Features/Equipment"
+  },
+  {
+   "fieldname": "room_size",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": " Shop Area Size"
+  },
+  {
+   "fieldname": "room_furniture_section",
+   "fieldtype": "Section Break",
+   "label": "Shop Furniture"
+  },
+  {
+   "fieldname": "room_media_attachment",
+   "fieldtype": "Table",
+   "label": "Shop Video and File Attachment",
+   "options": "File and Video Attachment Items"
+  },
+  {
+   "fieldname": "room_images",
+   "fieldtype": "Table",
+   "label": "Shop Images",
+   "options": "Image Items"
+  },
+  {
+   "fieldname": "room_furniture",
+   "fieldtype": "Table",
+   "label": "Shop Furniture",
+   "options": "Furniture Items"
+  },
+  {
+   "fieldname": "room_media_section",
+   "fieldtype": "Section Break",
+   "label": "Shop Media"
+  },
+  {
+   "fieldname": "room_features",
+   "fieldtype": "Table",
+   "label": "Shop Features",
+   "options": "Room Feature Item"
+  },
+  {
+   "fieldname": "unit_of_measurement",
+   "fieldtype": "Link",
+   "label": "Unit Of Measurement",
+   "link_filters": "[[\"UOM\",\"name\",\"like\",\"%square%\"]]",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "room_finance_section",
+   "fieldtype": "Section Break",
+   "label": "Shop Finance"
+  },
+  {
+   "fieldname": "rent_amount",
+   "fieldtype": "Data",
+   "label": "Rent Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "security_deposit_amount",
+   "fieldtype": "Data",
+   "label": "Security Deposit Amount",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_available",
+   "fieldtype": "Check",
+   "label": "Is Available"
+  },
+  {
+   "fieldname": "column_break_bzsy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "room",
+   "fieldtype": "Select",
+   "label": "Shop",
+   "options": "S1\nS2\nS3\nS4\nS5\nS6\nS7\nS8\nS9\nS10\nS11\nS12"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-19 19:04:53.591328",
+ "modified_by": "Administrator",
+ "module": "Property Management Solution",
+ "name": "Room",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

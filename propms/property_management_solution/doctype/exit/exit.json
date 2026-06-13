@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "autoname": "EXT.#####",
+ "creation": "2018-04-19 23:39:45.150319",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "lease",
+  "exit_type",
+  "premature_expiry_date",
+  "exit_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "lease",
+   "fieldtype": "Link",
+   "label": "Agreement",
+   "options": "Agreement"
+  },
+  {
+   "fieldname": "exit_type",
+   "fieldtype": "Select",
+   "label": "Exit Type",
+   "options": "Expiry\nPre-mature\nTermination"
+  },
+  {
+   "depends_on": "eval: in_list([\"Pre-mature\", \"Termination\"], doc.exit_type)\n\n",
+   "fieldname": "premature_expiry_date",
+   "fieldtype": "Date",
+   "label": "Premature expiry date"
+  },
+  {
+   "fieldname": "exit_details",
+   "fieldtype": "Text",
+   "label": "Exit Details"
+  }
+ ],
+ "links": [],
+ "modified": "2025-09-11 12:53:42.056387",
+ "modified_by": "Administrator",
+ "module": "Property Management Solution",
+ "name": "Exit",
+ "owner": "mkhakheria@aakvatech.com",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
